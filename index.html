@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politori & Oliveira — Advogados Associados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8965A;
+    --gold-light: #D4B07A;
+    --gold-dark: #8C6E3A;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E44;
+    --navy-light: #243D58;
+    --cream: #F8F5EF;
+    --cream-dark: #EDE8DF;
+    --text: #1A1A1A;
+    --text-muted: #6B6B6B;
+    --white: #FFFFFF;
+    --border: rgba(184,150,90,0.25);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,150,90,0.2);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 5% 80px;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,150,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,90,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(184,150,90,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 60px;
+    left: 5%;
+    right: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(184,150,90,0.2);
+    border: 1px solid rgba(184,150,90,0.2);
+    max-width: 560px;
+  }
+  .hero-stat {
+    background: rgba(13,27,42,0.9);
+    padding: 1.25rem 1.5rem;
+  }
+  .hero-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .hero-stat span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* SOBRE */
+  .sobre {
+    background: var(--cream);
+  }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .sobre-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.85;
+  }
+
+  .sobre-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+    margin-top: 2rem;
+  }
+  .value-item {
+    background: var(--cream);
+    padding: 1.5rem;
+  }
+  .value-item strong {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .value-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .socios-card {
+    background: var(--navy);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .socios-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 120px;
+    height: 120px;
+    background: rgba(184,150,90,0.08);
+    border-radius: 50%;
+    transform: translate(40px, -40px);
+  }
+
+  .socios-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .socio {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.75rem;
+  }
+  .socio:last-child { margin-bottom: 0; }
+
+  .socio-avatar {
+    width: 48px;
+    height: 48px;
+    background: rgba(184,150,90,0.15);
+    border: 1px solid rgba(184,150,90,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .socio-info strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .socio-info span {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .socio-info p {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(184,150,90,0.2);
+    margin: 1.75rem 0;
+  }
+
+  /* ÁREAS */
+  .areas { background: var(--white); }
+
+  .areas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+  }
+
+  .area-card {
+    background: var(--white);
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .area-card:hover { background: var(--cream); }
+  .area-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 1.75rem; right: 1.75rem;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+  }
+  .area-card:hover::after { transform: scaleX(1); }
+
+  .area-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(184,150,90,0.1);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .area-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.01em;
+  }
+
+  .area-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* DIFERENCIAIS */
+  .diferenciais {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .diferenciais h2 { color: var(--white); }
+  .diferenciais .lead { color: rgba(255,255,255,0.5); }
+
+  .dif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(184,150,90,0.15);
+    border: 1px solid rgba(184,150,90,0.15);
+    margin-top: 3.5rem;
+  }
+
+  .dif-item {
+    background: var(--navy);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+  .dif-item:hover { background: var(--navy-mid); }
+
+  .dif-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: rgba(184,150,90,0.2);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+  }
+
+  .dif-item h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .dif-item p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
+  /* CONTATO */
+  .contato { background: var(--cream); }
+
+  .contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .contato-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--gold);
+  }
+
+  .contact-item strong {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  .contact-item a, .contact-item p {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .contact-item a:hover { color: var(--gold-dark); }
+
+  .contato-form {
+    background: var(--white);
+    padding: 2.5rem;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .contato-form h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 1.75rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--cream-dark);
+    background: var(--cream);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--navy-mid); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 60px 5% 30px;
+    border-top: 1px solid rgba(184,150,90,0.2);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 30px;
+  }
+
+  .footer-brand p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.75;
+    margin-top: 1rem;
+    max-width: 320px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-oab {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    max-width: 400px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  /* WA FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #25D366;
+    color: var(--white);
+    padding: 0.8rem 1.4rem 0.8rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+  }
+
+  .wa-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .hero-stats { grid-template-columns: 1fr; max-width: 280px; }
+    .form-row { grid-template-columns: 1fr; }
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero { padding: 100px 5% 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>P&O</span> Advogados</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="https://wa.me/5514997254545" class="nav-cta">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Taquarituba · SP — Advocacia de Resultado</div>
+    <h1>Experiência e<br><em>transparência</em><br>a seu lado.</h1>
+    <p class="hero-sub">O escritório Politori & Oliveira atua em todo o território brasileiro, unindo técnica jurídica, ética e comprometimento com cada cliente.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5514997254545" class="btn-primary">
+        Fale pelo WhatsApp →
+      </a>
+      <a href="#areas" class="btn-ghost">Ver áreas de atuação</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>15+</strong>
+      <span>Anos de atuação</span>
+    </div>
+    <div class="hero-stat">
+      <strong>100%</strong>
+      <span>Comprometimento</span>
+    </div>
+    <div class="hero-stat">
+      <strong>BR</strong>
+      <span>Atuação nacional</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="section-label">Sobre o escritório</div>
+  <h2>Advocacia construída<br>sobre resultados reais.</h2>
+  <div class="sobre-grid">
+    <div class="sobre-text">
+      <p>O escritório Politori & Oliveira Advogados Associados, estabelecido em Taquarituba-SP, devidamente inscrito na OAB, atua nas mais diversas áreas do Direito, patrocinando causas em inúmeras cidades em todo o Brasil.</p>
+      <p>Comprometidos em criar oportunidades para seus clientes, antecipando e atendendo suas necessidades com eficiência, ética e transparência — o escritório conta com estrutura física completa e equipe em permanente atualização.</p>
+      <p>Nossos profissionais participam continuamente de cursos, palestras e especializações, acompanhando as novas tendências da advocacia contemporânea.</p>
+      <div class="sobre-values">
+        <div class="value-item">
+          <strong>Ética</strong>
+          <p>Atuação íntegra em cada etapa do processo.</p>
+        </div>
+        <div class="value-item">
+          <strong>Transparência</strong>
+          <p>Clareza total sobre estratégia e honorários.</p>
+        </div>
+        <div class="value-item">
+          <strong>Técnica</strong>
+          <p>Atualização constante e rigor jurídico.</p>
+        </div>
+        <div class="value-item">
+          <strong>Resultado</strong>
+          <p>Foco na melhor solução para cada caso.</p>
+        </div>
+      </div>
+    </div>
+    <div class="socios-card">
+      <h3>Os Sócios Fundadores</h3>
+      <div class="socio">
+        <div class="socio-avatar">RP</div>
+        <div class="socio-info">
+          <strong>Dr. Rodrigo Politori</strong>
+          <span>Sócio Fundador · OAB/SP</span>
+          <p>Especialista em Direito Bancário e revisão de contratos, com atuação em todo o território nacional.</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="socio">
+        <div class="socio-avatar">CO</div>
+        <div class="socio-info">
+          <strong>Dr. Carlos Eduardo Oliveira</strong>
+          <span>Sócio Fundador · OAB/SP</span>
+          <p>Atuação em Direito Civil, Trabalhista e Empresarial, com foco em soluções estratégicas para pessoas e empresas.</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <a href="https://wa.me/5514997254545" class="btn-primary" style="display:inline-flex; margin-top:0.5rem; font-size:0.85rem; padding:0.7rem 1.5rem;">
+        Agendar consulta →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="areas" id="areas">
+  <div class="areas-header">
+    <div>
+      <div class="section-label">Especialidades</div>
+      <h2>Áreas de atuação</h2>
+    </div>
+    <p class="lead" style="max-width:380px; margin:0;">Atuação multidisciplinar para oferecer a solução jurídica mais adequada à sua situação.</p>
+  </div>
+  <div class="areas-grid">
+    <div class="area-card">
+      <div class="area-icon">⚖️</div>
+      <h3>Direito Civil</h3>
+      <p>Contratos, responsabilidade civil, família e sucessões, usucapião e questões imobiliárias.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🏦</div>
+      <h3>Direito Bancário</h3>
+      <p>Revisão de juros abusivos, busca e apreensão de veículos, contratos de financiamento e seguros.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">👔</div>
+      <h3>Direito Trabalhista</h3>
+      <p>Defesa de empregados e empregadores, verbas rescisórias, acúmulo de funções e assédio.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🏢</div>
+      <h3>Direito Empresarial</h3>
+      <p>Constituição de empresas, contratos comerciais, recuperação judicial e dissolução societária.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🔒</div>
+      <h3>Direito Criminal</h3>
+      <p>Defesa criminal, habeas corpus, inquéritos policiais e recursos em todas as instâncias.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">📋</div>
+      <h3>Processos Administrativos</h3>
+      <p>Representação perante órgãos públicos, multas, licenças e recursos administrativos.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">💳</div>
+      <h3>Cobrança e Execução</h3>
+      <p>Recuperação de crédito, execução de títulos, negativação e protestos extrajudiciais.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🔄</div>
+      <h3>Revisão Contratual</h3>
+      <p>Revisão de empréstimos, financiamentos, seguros e qualquer contrato com cláusulas abusivas.</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:3rem;">
+    <a href="#contato" class="btn-primary" style="background:var(--navy); color:var(--white);">Consultar sobre meu caso →</a>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="section-label" style="color:var(--gold-light);">Por que nos escolher</div>
+  <h2>O que nos diferencia</h2>
+  <p class="lead">Mais do que advogados — somos parceiros na busca pela solução mais justa para cada caso.</p>
+  <div class="dif-grid">
+    <div class="dif-item">
+      <div class="dif-num">01</div>
+      <h3>Atuação nacional</h3>
+      <p>Patrocinamos causas em todo o Brasil, sem fronteiras geográficas.</p>
+    </div>
+    <div class="dif-item">
+      <div class="dif-num">02</div>
+      <h3>Equipe atualizada</h3>
+      <p>Participação contínua em cursos, palestras e especializações jurídicas.</p>
+    </div>
+    <div class="dif-item">
+      <div class="dif-num">03</div>
+      <h3>Advocacia preventiva</h3>
+      <p>Antecipamos riscos e evitamos problemas antes que se tornem processos.</p>
+    </div>
+    <div class="dif-item">
+      <div class="dif-num">04</div>
+      <h3>Estrutura completa</h3>
+      <p>Instalações modernas e vasto acervo bibliográfico para servir você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="section-label">Fale conosco</div>
+  <h2>Vamos conversar<br>sobre o seu caso.</h2>
+  <div class="contato-grid">
+    <div class="contato-info">
+      <h3>Atendimento presencial<br>e em todo o Brasil.</h3>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <strong>Telefone / WhatsApp</strong>
+          <a href="https://wa.me/5514997254545">(14) 9.9725-4545</a><br>
+          <a href="tel:5514996851304">(14) 9.9685-1304</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <strong>Endereço — Matriz</strong>
+          <p>R. Ten.-Cel. Firmino Gabriel da Luz, 232<br>Centro — Taquarituba/SP — CEP 18.740-005</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <strong>E-mail</strong>
+          <a href="mailto:contato@politorioliveiraadvocacia.com.br">contato@politorioliveiraadvocacia.com.br</a>
+        </div>
+      </div>
+      <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="btn-primary" style="margin-top:1rem; display:inline-flex;">
+        Iniciar conversa no WhatsApp →
+      </a>
+    </div>
+    <div class="contato-form">
+      <h3>Envie uma mensagem</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label>Telefone</label>
+          <input type="tel" placeholder="(14) 99999-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="seu@email.com">
+      </div>
+      <div class="form-group">
+        <label>Área de interesse</label>
+        <select>
+          <option value="">Selecione a área</option>
+          <option>Direito Civil</option>
+          <option>Direito Bancário</option>
+          <option>Direito Trabalhista</option>
+          <option>Direito Empresarial</option>
+          <option>Direito Criminal</option>
+          <option>Processos Administrativos</option>
+          <option>Cobrança e Execução</option>
+          <option>Revisão Contratual</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Descreva seu caso brevemente</label>
+        <textarea placeholder="Conte-nos o que está acontecendo..."></textarea>
+      </div>
+      <button class="btn-submit">Enviar mensagem</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:var(--font-display); color:var(--white); font-size:1.2rem; font-weight:400; letter-spacing:0.04em;">
+        <span style="color:var(--gold);">Politori</span> & Oliveira
+      </div>
+      <p>Escritório de Advocacia especializado em múltiplas áreas do Direito. Atuação em todo o Brasil com comprometimento, ética e transparência.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#sobre">Sobre o escritório</a></li>
+        <li><a href="#areas">Áreas de atuação</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5514997254545">(14) 9.9725-4545</a></li>
+        <li><a href="https://wa.me/5514996851304">(14) 9.9685-1304</a></li>
+        <li><a href="mailto:contato@politorioliveiraadvocacia.com.br">Enviar e-mail</a></li>
+        <li><a href="https://www.instagram.com/politori_oliveira_advocacia/">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Politori & Oliveira Advogados Associados. Todos os direitos reservados.</p>
+    <p class="footer-oab">Conforme o Provimento 205/2021 da OAB, este conteúdo tem caráter meramente informativo e não constitui oferta de serviços advocatícios.</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="wa-float" target="_blank" rel="noopener">
+  <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+  Fale agora
+</a>
+
+</body>
+</html>
