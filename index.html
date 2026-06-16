@@ -4,1052 +4,724 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politori & Oliveira — Advogados Associados</title>
+<meta name="description" content="Escritório de advocacia com mais de 15 anos de experiência. Direito Civil, Bancário, Trabalhista e muito mais. Atendimento nacional. Fale com nossos advogados.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --gold: #B8965A;
-    --gold-light: #D4B07A;
-    --gold-dark: #8C6E3A;
-    --navy: #0D1B2A;
-    --navy-mid: #1A2E44;
-    --navy-light: #243D58;
-    --cream: #F8F5EF;
-    --cream-dark: #EDE8DF;
-    --text: #1A1A1A;
-    --text-muted: #6B6B6B;
-    --white: #FFFFFF;
-    --border: rgba(184,150,90,0.25);
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text);
-    background: var(--white);
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(13,27,42,0.97);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(184,150,90,0.2);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold-light); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2px;
-    font-weight: 600 !important;
-    letter-spacing: 0.04em !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 120px 5% 80px;
-  }
-
-  .hero-bg-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(184,150,90,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(184,150,90,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-accent {
-    position: absolute;
-    top: 0; right: 0;
-    width: 45%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(184,150,90,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    max-width: 680px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 2rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.18;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.75;
-    max-width: 500px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 0.9rem 2rem;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: rgba(255,255,255,0.75);
-    padding: 0.9rem 2rem;
-    border-radius: 2px;
-    border: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
-
-  .hero-stats {
-    position: absolute;
-    bottom: 60px;
-    left: 5%;
-    right: 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(184,150,90,0.2);
-    border: 1px solid rgba(184,150,90,0.2);
-    max-width: 560px;
-  }
-  .hero-stat {
-    background: rgba(13,27,42,0.9);
-    padding: 1.25rem 1.5rem;
-  }
-  .hero-stat strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: var(--gold-light);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .hero-stat span {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  /* SECTIONS */
-  section { padding: 100px 5%; }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-  }
-  .section-label::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-    font-weight: 400;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-  }
-
-  .lead {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    line-height: 1.8;
-  }
-
-  /* SOBRE */
-  .sobre {
-    background: var(--cream);
-  }
-
-  .sobre-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 60px;
-  }
-
-  .sobre-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    line-height: 1.85;
-  }
-
-  .sobre-values {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--cream-dark);
-    border: 1px solid var(--cream-dark);
-    margin-top: 2rem;
-  }
-  .value-item {
-    background: var(--cream);
-    padding: 1.5rem;
-  }
-  .value-item strong {
-    display: block;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--navy);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
-  .value-item p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .socios-card {
-    background: var(--navy);
-    padding: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .socios-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 120px;
-    height: 120px;
-    background: rgba(184,150,90,0.08);
-    border-radius: 50%;
-    transform: translate(40px, -40px);
-  }
-
-  .socios-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--gold-light);
-    margin-bottom: 2rem;
-    letter-spacing: 0.02em;
-  }
-
-  .socio {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 1.75rem;
-  }
-  .socio:last-child { margin-bottom: 0; }
-
-  .socio-avatar {
-    width: 48px;
-    height: 48px;
-    background: rgba(184,150,90,0.15);
-    border: 1px solid rgba(184,150,90,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    color: var(--gold);
-    flex-shrink: 0;
-    font-weight: 500;
-  }
-
-  .socio-info strong {
-    display: block;
-    color: var(--white);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 0.2rem;
-  }
-  .socio-info span {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .socio-info p {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(184,150,90,0.2);
-    margin: 1.75rem 0;
-  }
-
-  /* ÁREAS */
-  .areas { background: var(--white); }
-
-  .areas-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3.5rem;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .areas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1px;
-    background: var(--cream-dark);
-    border: 1px solid var(--cream-dark);
-  }
-
-  .area-card {
-    background: var(--white);
-    padding: 2rem 1.75rem;
-    transition: background 0.2s;
-    position: relative;
-  }
-  .area-card:hover { background: var(--cream); }
-  .area-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 1.75rem; right: 1.75rem;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.25s;
-  }
-  .area-card:hover::after { transform: scaleX(1); }
-
-  .area-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(184,150,90,0.1);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-    font-size: 1.2rem;
-  }
-
-  .area-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.01em;
-  }
-
-  .area-card p {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* DIFERENCIAIS */
-  .diferenciais {
-    background: var(--navy);
-    color: var(--white);
-  }
-  .diferenciais h2 { color: var(--white); }
-  .diferenciais .lead { color: rgba(255,255,255,0.5); }
-
-  .dif-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1px;
-    background: rgba(184,150,90,0.15);
-    border: 1px solid rgba(184,150,90,0.15);
-    margin-top: 3.5rem;
-  }
-
-  .dif-item {
-    background: var(--navy);
-    padding: 2rem;
-    transition: background 0.2s;
-  }
-  .dif-item:hover { background: var(--navy-mid); }
-
-  .dif-num {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: rgba(184,150,90,0.2);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-    font-weight: 400;
-  }
-
-  .dif-item h3 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--gold-light);
-    margin-bottom: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-  }
-
-  .dif-item p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.65;
-  }
-
-  /* CONTATO */
-  .contato { background: var(--cream); }
-
-  .contato-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    margin-top: 3.5rem;
-    align-items: start;
-  }
-
-  .contato-info h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 2rem;
-  }
-
-  .contact-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 1.75rem;
-  }
-
-  .contact-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--white);
-    border: 1px solid var(--cream-dark);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1.1rem;
-    color: var(--gold);
-  }
-
-  .contact-item strong {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    margin-bottom: 0.3rem;
-    font-weight: 500;
-  }
-
-  .contact-item a, .contact-item p {
-    color: var(--navy);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-  }
-  .contact-item a:hover { color: var(--gold-dark); }
-
-  .contato-form {
-    background: var(--white);
-    padding: 2.5rem;
-    border: 1px solid var(--cream-dark);
-  }
-
-  .contato-form h3 {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 1.75rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid var(--cream-dark);
-    background: var(--cream);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text);
-    outline: none;
-    border-radius: 2px;
-    transition: border-color 0.2s;
-    appearance: none;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--gold);
-    background: var(--white);
-  }
-  .form-group textarea { resize: vertical; min-height: 110px; }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .btn-submit {
-    width: 100%;
-    background: var(--navy);
-    color: var(--white);
-    padding: 1rem;
-    border: none;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: background 0.2s;
-    margin-top: 0.5rem;
-  }
-  .btn-submit:hover { background: var(--navy-mid); }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    padding: 60px 5% 30px;
-    border-top: 1px solid rgba(184,150,90,0.2);
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    margin-bottom: 30px;
-  }
-
-  .footer-brand p {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.75;
-    margin-top: 1rem;
-    max-width: 320px;
-  }
-
-  .footer-col h4 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-  }
-
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-col ul li a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s;
-  }
-  .footer-col ul li a:hover { color: var(--gold-light); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-bottom p {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.25);
-  }
-
-  .footer-oab {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.2);
-    max-width: 400px;
-    text-align: right;
-    line-height: 1.5;
-  }
-
-  /* WA FLOAT */
-  .wa-float {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #25D366;
-    color: var(--white);
-    padding: 0.8rem 1.4rem 0.8rem 1rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .wa-float:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.45);
-  }
-
-  .wa-icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 40px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .hero-stats { grid-template-columns: 1fr; max-width: 280px; }
-    .form-row { grid-template-columns: 1fr; }
-    nav { padding: 0 4%; }
-    .nav-links { display: none; }
-  }
-
-  @media (max-width: 600px) {
-    section { padding: 70px 5%; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .hero { padding: 100px 5% 200px; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:       #0D1B2A;
+  --navy-mid:   #152336;
+  --navy-deep:  #080F18;
+  --gold:       #B8965A;
+  --gold-soft:  #D4B47A;
+  --gold-pale:  #EDD99A;
+  --cream:      #F8F5EF;
+  --cream-dark: #EDE8DF;
+  --white:      #FFFFFF;
+  --border:     #E4E0D8;
+  --text-muted: #6B7280;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans:    'Inter', system-ui, sans-serif;
+  --radius: 0.75rem;
+  --shadow-gold: 0 8px 32px rgba(184,150,90,0.2);
+  --shadow-navy: 0 8px 32px rgba(13,27,42,0.2);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: #fff; color: var(--navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1,h2,h3,h4,h5 { font-family: var(--font-display); letter-spacing: -0.01em; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+@media (min-width: 640px) { .container { padding: 0 2rem; } }
+/* UTILITIES */
+.gold-divider { height: 2px; width: 56px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.gold-divider.mx-auto { margin: 0 auto; }
+.eyebrow { display: flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold); }
+.eyebrow::before { content: ''; display: block; height: 1px; width: 2rem; background: var(--gold); }
+.text-gold-shimmer { background: linear-gradient(90deg, var(--gold) 0%, var(--gold-pale) 50%, var(--gold) 100%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 4s linear infinite; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
+/* BUTTONS */
+.btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 0.375rem; background: var(--gold); padding: 1rem 2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); box-shadow: 0 8px 24px rgba(184,150,90,0.35); transition: background 0.2s, box-shadow 0.2s, transform 0.2s; }
+.btn-gold:hover { background: var(--gold-soft); box-shadow: 0 12px 32px rgba(184,150,90,0.45); transform: translateY(-2px); }
+.btn-navy { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 0.375rem; background: var(--navy); padding: 0.625rem 1.125rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cream); transition: background 0.2s; }
+.btn-navy:hover { background: var(--navy-mid); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 0.375rem; border: 1.5px solid rgba(255,255,255,0.25); padding: 1rem 2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.8); transition: border-color 0.2s, color 0.2s; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-soft); }
+/* TOPBAR */
+#topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255,255,255,0.93); border-bottom: 1px solid rgba(232,232,238,0.6); }
+#topbar .inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+.logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.02em; color: var(--navy); }
+.logo-text span { color: var(--gold); }
+.logo-oab { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.1rem; }
+#topbar nav { display: none; gap: 2rem; align-items: center; }
+#topbar nav a { font-size: 0.875rem; color: rgba(13,27,42,0.7); transition: color 0.2s; }
+#topbar nav a:hover { color: var(--gold); }
+@media (min-width: 1024px) { #topbar nav { display: flex; } }
+@media (min-width: 640px) { #topbar .inner { height: 6rem; } }
+/* HERO */
+#hero { position: relative; min-height: 100vh; background: var(--navy); overflow: hidden; display: flex; align-items: center; padding-top: 6rem; }
+@media (min-width: 640px) { #hero { padding-top: 7rem; } }
+#hero .bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,90,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,90,0.05) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
+#hero .glow-1 { position: absolute; top: -6rem; right: -6rem; width: 36rem; height: 36rem; border-radius: 50%; background: rgba(184,150,90,0.12); filter: blur(90px); pointer-events: none; }
+#hero .glow-2 { position: absolute; bottom: -10rem; left: -8rem; width: 32rem; height: 32rem; border-radius: 50%; background: rgba(13,27,42,0.6); filter: blur(80px); pointer-events: none; }
+#hero .container { position: relative; width: 100%; }
+#hero .inner { display: grid; gap: 3rem; align-items: center; padding: 4rem 0 6rem; }
+@media (min-width: 1024px) { #hero .inner { grid-template-columns: 6fr 5fr; gap: 4rem; padding: 5rem 0 8rem; } }
+#hero h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); font-weight: 400; color: var(--white); line-height: 1.1; }
+#hero h1 .sub { display: block; margin-top: 0.75rem; font-size: clamp(1.4rem, 3vw, 2.4rem); color: rgba(255,255,255,0.8); font-weight: 300; }
+#hero .lead { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 44rem; }
+#hero .col-text { display: flex; flex-direction: column; gap: 1.75rem; }
+#hero .badges { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (min-width: 640px) { #hero .badges { grid-template-columns: repeat(4,1fr); } }
+#hero .badge-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+#hero .badge-item svg { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+/* HERO CARD */
+#hero .card-side { position: relative; }
+#hero .card-glow { position: absolute; inset: -1.5rem; background: linear-gradient(135deg, rgba(184,150,90,0.25), transparent, rgba(13,27,42,0.3)); border-radius: 1.5rem; filter: blur(24px); }
+#hero .card-box { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,150,90,0.2); backdrop-filter: blur(8px); }
+#hero .card-header { background: linear-gradient(135deg, rgba(184,150,90,0.15), rgba(184,150,90,0.05)); padding: 1.75rem; border-bottom: 1px solid rgba(184,150,90,0.15); }
+#hero .card-header h3 { font-size: 1.1rem; color: var(--white); font-weight: 400; }
+#hero .card-header p { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; letter-spacing: 0.06em; text-transform: uppercase; }
+#hero .card-body { padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+.socio-row { display: flex; gap: 1rem; align-items: center; padding: 1rem; border-radius: 0.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(184,150,90,0.12); transition: border-color 0.2s, background 0.2s; }
+.socio-row:hover { border-color: rgba(184,150,90,0.3); background: rgba(255,255,255,0.06); }
+.socio-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(184,150,90,0.15); border: 1px solid rgba(184,150,90,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.95rem; color: var(--gold); flex-shrink: 0; font-weight: 500; }
+.socio-info strong { display: block; font-size: 0.9rem; color: var(--white); font-weight: 500; }
+.socio-info span { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.07em; text-transform: uppercase; }
+#hero .card-footer { padding: 1.25rem 1.75rem; border-top: 1px solid rgba(184,150,90,0.12); }
+#hero .stars-badge { display: flex; align-items: center; gap: 0.5rem; }
+#hero .stars { display: flex; }
+#hero .stars svg { color: var(--gold); fill: var(--gold); width: 14px; height: 14px; }
+#hero .stars-badge span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+/* STATS BAR */
+#statsbar { background: linear-gradient(90deg, var(--navy-deep), var(--navy-mid), var(--navy-deep)); border-top: 1px solid rgba(184,150,90,0.2); border-bottom: 1px solid rgba(184,150,90,0.2); }
+#statsbar .inner { display: grid; grid-template-columns: repeat(2,1fr); }
+@media (min-width: 768px) { #statsbar .inner { grid-template-columns: repeat(5,1fr); } }
+#statsbar .stat { padding: 2rem 1.5rem; text-align: center; border-right: 1px solid rgba(184,150,90,0.1); }
+#statsbar .stat:last-child { border-right: none; }
+#statsbar .stat-n { font-family: var(--font-display); font-size: clamp(1.75rem,4vw,2.25rem); color: var(--gold); line-height: 1; }
+#statsbar .stat-l { font-size: 0.68rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+/* SECTIONS */
+section { padding: 5rem 0; }
+@media (min-width: 640px) { section { padding: 7rem 0; } }
+.section-header { max-width: 48rem; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.section-title { font-size: clamp(1.75rem,4vw,3rem); color: var(--navy); line-height: 1.15; font-weight: 400; }
+/* PAIN */
+#pain { background: rgba(248,245,239,0.6); }
+#pain .cards { margin-top: 3.5rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { #pain .cards { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { #pain .cards { grid-template-columns: repeat(4,1fr); } }
+.pain-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; cursor: default; }
+.pain-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(184,150,90,0.15); transform: translateY(-4px); }
+.pain-card .icon-wrap { width: 2.75rem; height: 2.75rem; border-radius: 0.5rem; background: rgba(13,27,42,0.05); display: grid; place-items: center; color: var(--navy); transition: background 0.3s, color 0.3s; }
+.pain-card:hover .icon-wrap { background: var(--gold); color: var(--navy); }
+.pain-card p { margin-top: 1rem; font-weight: 500; line-height: 1.4; font-size: 0.9rem; }
+#pain .note { max-width: 48rem; margin: 3.5rem auto 0; text-align: center; }
+#pain .note p { font-size: 1.1rem; color: rgba(13,27,42,0.7); font-style: italic; }
+#pain .note .cta { margin-top: 1.5rem; display: flex; justify-content: center; }
+/* SOBRE */
+#sobre { background: #fff; }
+#sobre .inner { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 1024px) { #sobre .inner { grid-template-columns: 5fr 7fr; gap: 5rem; } }
+#sobre .img-side { position: relative; }
+#sobre .img-glow { position: absolute; inset: -1.5rem; background: linear-gradient(135deg, rgba(184,150,90,0.2), rgba(13,27,42,0.1)); border-radius: 1rem; filter: blur(24px); }
+#sobre .img-placeholder { position: relative; border-radius: 1rem; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); aspect-ratio: 4/5; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; box-shadow: 0 24px 64px rgba(13,27,42,0.3); outline: 1px solid rgba(184,150,90,0.25); }
+#sobre .img-placeholder .bg-pat { position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(184,150,90,0.08) 1px, transparent 0); background-size: 20px 20px; }
+#sobre .img-placeholder .monogram { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -65%); font-family: var(--font-display); font-size: 6rem; color: rgba(184,150,90,0.1); font-weight: 700; letter-spacing: -0.05em; user-select: none; }
+#sobre .img-caption { position: relative; width: 100%; background: linear-gradient(to top, rgba(13,27,42,0.98), rgba(13,27,42,0.7), transparent); padding: 2rem 1.75rem 1.75rem; }
+#sobre .img-caption .firm { font-family: var(--font-display); color: var(--white); font-size: 1.1rem; }
+#sobre .img-caption .since { color: var(--gold-soft); font-size: 0.8rem; margin-top: 0.25rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.stars-badge-light { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; padding: 0.625rem 1rem; border-radius: 0.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.1); outline: 1px solid var(--border); font-size: 0.75rem; font-weight: 500; color: var(--navy); position: absolute; bottom: -1.25rem; right: 1.25rem; }
+.stars-sm { display: flex; }
+.stars-sm svg { color: var(--gold); fill: var(--gold); width: 12px; height: 12px; }
+#sobre .content { display: flex; flex-direction: column; gap: 1.5rem; }
+#sobre .body-text { display: flex; flex-direction: column; gap: 1rem; color: rgba(13,27,42,0.7); line-height: 1.8; }
+#sobre .body-text strong { color: var(--navy); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(184,150,90,0.4); background: rgba(184,150,90,0.05); border-radius: 999px; padding: 0.375rem 1rem; font-size: 0.875rem; color: var(--navy); }
+.tag svg { color: var(--gold); }
+blockquote.highlight { border-left: 3px solid var(--gold); padding: 0.5rem 0 0.5rem 1.5rem; position: relative; }
+blockquote.highlight p { font-family: var(--font-display); font-size: clamp(1.2rem,2.5vw,1.6rem); font-style: italic; color: var(--navy); line-height: 1.3; }
+blockquote.highlight footer { margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted); }
+/* AREAS */
+#areas { background: linear-gradient(180deg, rgba(248,245,239,0.4),#fff); }
+#areas .cards { margin-top: 3.5rem; display: grid; gap: 1.25rem; }
+@media (min-width: 640px) { #areas .cards { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { #areas .cards { grid-template-columns: repeat(3,1fr); } }
+.area-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+.area-card:hover { border-color: var(--gold); box-shadow: 0 12px 48px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.area-card .icon-wrap { width: 3rem; height: 3rem; border-radius: 0.75rem; background: var(--navy); color: var(--gold); display: grid; place-items: center; transition: background 0.3s, color 0.3s; }
+.area-card:hover .icon-wrap { background: var(--gold); color: var(--navy); }
+.area-card h3 { margin-top: 1.25rem; font-size: 1.2rem; color: var(--navy); font-weight: 500; }
+.area-card p { margin-top: 0.5rem; font-size: 0.875rem; color: rgba(13,27,42,0.65); line-height: 1.65; }
+.area-card .link { margin-top: 1.25rem; display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; font-weight: 600; color: var(--gold); transition: gap 0.2s; }
+.area-card:hover .link { gap: 0.5rem; }
+/* DIFERENCIAIS */
+#diferenciais { background: var(--navy); color: var(--cream); position: relative; overflow: hidden; }
+#diferenciais::before { content: ''; position: absolute; inset: 0; opacity: 0.04; background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px; pointer-events: none; }
+#diferenciais .section-title { color: var(--cream); }
+#diferenciais .cards { margin-top: 3.5rem; display: grid; gap: 1.25rem; position: relative; }
+@media (min-width: 640px) { #diferenciais .cards { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { #diferenciais .cards { grid-template-columns: repeat(4,1fr); } }
+.dif-card { border-radius: var(--radius); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 1.75rem; transition: border-color 0.3s, background 0.3s; }
+.dif-card:hover { border-color: rgba(184,150,90,0.5); background: rgba(255,255,255,0.08); }
+.dif-card svg { color: var(--gold); width: 1.75rem; height: 1.75rem; }
+.dif-card h3 { margin-top: 1rem; font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
+.dif-card p { margin-top: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+/* DEPOIMENTOS */
+#depoimentos { background: var(--cream); }
+#depoimentos .cards { margin-top: 3.5rem; display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { #depoimentos .cards { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { #depoimentos .cards { grid-template-columns: repeat(3,1fr); } }
+.testi-card { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: box-shadow 0.3s, transform 0.3s; }
+.testi-card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.testi-card .quote-icon { position: absolute; top: 1.25rem; right: 1.25rem; color: rgba(184,150,90,0.25); }
+.testi-card .stars { display: flex; margin-bottom: 1rem; }
+.testi-card .stars svg { color: var(--gold); fill: var(--gold); width: 1rem; height: 1rem; }
+.testi-card blockquote { font-family: var(--font-display); font-size: 1.05rem; font-style: italic; color: var(--navy); line-height: 1.5; }
+.testi-card figcaption { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+/* PROCESSO */
+#processo { background: rgba(248,245,239,0.4); }
+#processo .cards { margin-top: 4rem; display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { #processo .cards { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { #processo .cards { grid-template-columns: repeat(4,1fr); } }
+.how-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+.how-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.how-card .num { font-family: var(--font-display); font-size: 3rem; color: rgba(184,150,90,0.35); line-height: 1; }
+.how-card h3 { margin-top: 0.75rem; font-size: 1.15rem; color: var(--navy); }
+.how-card p { margin-top: 0.5rem; font-size: 0.875rem; color: rgba(13,27,42,0.6); line-height: 1.65; }
+/* FAQ */
+#faq { background: #fff; }
+#faq .items { margin-top: 3rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 48rem; margin-left: auto; margin-right: auto; }
+details.faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.3s, box-shadow 0.3s; }
+details.faq-item[open] { border-color: var(--gold); box-shadow: 0 8px 32px rgba(184,150,90,0.12); }
+details.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem; cursor: pointer; list-style: none; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--navy); font-weight: 500; }
+details.faq-item summary .arrow { color: var(--gold); flex-shrink: 0; transition: transform 0.3s; }
+details.faq-item[open] summary .arrow { transform: rotate(180deg); }
+details.faq-item .answer { padding: 0 1.5rem 1.5rem; margin-top: -0.5rem; font-size: 0.9rem; color: rgba(13,27,42,0.7); line-height: 1.75; }
+/* CONTATO */
+#contato { background: var(--cream); }
+#contato .inner { display: grid; gap: 3rem; align-items: start; margin-top: 3.5rem; }
+@media (min-width: 1024px) { #contato .inner { grid-template-columns: 1fr 1.2fr; gap: 5rem; } }
+#contato h3 { font-size: 1.4rem; color: var(--navy); font-weight: 400; margin-bottom: 1.75rem; }
+.contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+.contact-icon { width: 44px; height: 44px; background: #fff; border: 1px solid var(--border); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
+.contact-item strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.3rem; }
+.contact-item a, .contact-item p { color: var(--navy); font-size: 0.95rem; font-weight: 500; line-height: 1.5; }
+.contact-item a:hover { color: var(--gold); }
+.form-box { background: #fff; padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
+.form-box h3 { font-size: 1.3rem; margin-bottom: 1.75rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--border); background: var(--cream); font-family: var(--font-sans); font-size: 0.9rem; color: var(--navy); outline: none; border-radius: 0.375rem; transition: border-color 0.2s, background 0.2s; appearance: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: #fff; }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+.btn-submit { width: 100%; background: var(--navy); color: #fff; padding: 1rem; border: none; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border-radius: 0.375rem; transition: background 0.2s; margin-top: 0.5rem; }
+.btn-submit:hover { background: var(--navy-mid); }
+/* CTA FINAL */
+#finalcta { padding: 6rem 0; background: var(--navy-deep); color: var(--cream); text-align: center; position: relative; overflow: hidden; }
+@media (min-width: 640px) { #finalcta { padding: 9rem 0; } }
+#finalcta .glow { position: absolute; top: -10rem; left: 50%; transform: translateX(-50%); width: 40rem; height: 40rem; border-radius: 50%; background: rgba(184,150,90,0.15); filter: blur(90px); pointer-events: none; }
+#finalcta::after { content: ''; position: absolute; inset: 0; opacity: 0.04; background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px; pointer-events: none; }
+#finalcta .inner { position: relative; z-index: 1; max-width: 56rem; margin: 0 auto; }
+#finalcta h2 { font-size: clamp(2rem, 5vw, 3.75rem); color: var(--cream); line-height: 1.1; font-weight: 400; }
+#finalcta p { margin-top: 1.25rem; font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 42rem; margin-left: auto; margin-right: auto; }
+#finalcta .cta { margin-top: 2.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+/* FOOTER */
+footer { background: var(--navy); color: rgba(253,252,249,0.75); padding: 4rem 0 2rem; border-top: 1px solid rgba(184,150,90,0.2); }
+footer .grid { display: grid; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+@media (min-width: 768px) { footer .grid { grid-template-columns: 2fr 1fr 1fr; } }
+footer .logo-block p { margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 320px; }
+footer h4 { font-family: var(--font-display); font-size: 1rem; color: var(--cream); margin-bottom: 1.25rem; font-weight: 500; }
+footer .contact-link { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; transition: color 0.2s; margin-bottom: 0.75rem; }
+footer .contact-link:hover { color: var(--gold); }
+footer .contact-link svg { color: rgba(184,150,90,0.7); flex-shrink: 0; }
+footer .nav-links-col li { margin-bottom: 0.5rem; list-style: none; }
+footer .nav-links-col a { font-size: 0.875rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+footer .nav-links-col a:hover { color: var(--gold-soft); }
+footer .bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+footer .bottom p:last-child { max-width: 42rem; }
+/* FLOAT WA */
+#float-wa { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+#float-wa a { position: relative; display: flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; border-radius: 999px; padding: 0.875rem 1.25rem 0.875rem 1rem; box-shadow: 0 8px 32px rgba(37,211,102,0.4); font-size: 0.875rem; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+#float-wa a:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+#float-wa .ping { position: absolute; inset: 0; border-radius: 999px; background: #25D366; animation: ping 1.5s ease-out infinite; opacity: 0.3; }
+@keyframes ping { 75%,100% { transform: scale(1.4); opacity: 0; } }
+@media (max-width: 480px) { #float-wa span.label { display: none; } }
+svg { display: inline-block; vertical-align: middle; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#"><span>P&O</span> Advogados</a>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#areas">Áreas</a></li>
-    <li><a href="#contato">Contato</a></li>
-    <li><a href="https://wa.me/5514997254545" class="nav-cta">WhatsApp</a></li>
-  </ul>
-</nav>
+<!-- TOPBAR -->
+<header id="topbar">
+  <div class="container inner">
+    <a href="#top">
+      <div class="logo-text"><span>Politori</span> & Oliveira</div>
+      <div class="logo-oab">Advogados Associados · OAB/SP</div>
+    </a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#areas">Áreas</a>
+      <a href="#depoimentos">Clientes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-navy">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Falar Agora
+    </a>
+  </div>
+</header>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Taquarituba · SP — Advocacia de Resultado</div>
-    <h1>Experiência e<br><em>transparência</em><br>a seu lado.</h1>
-    <p class="hero-sub">O escritório Politori & Oliveira atua em todo o território brasileiro, unindo técnica jurídica, ética e comprometimento com cada cliente.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5514997254545" class="btn-primary">
-        Fale pelo WhatsApp →
-      </a>
-      <a href="#areas" class="btn-ghost">Ver áreas de atuação</a>
+<section id="top">
+  <div id="hero">
+    <div class="bg-grid"></div>
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+    <div class="container">
+      <div class="inner">
+        <div class="col-text reveal">
+          <div class="eyebrow">Taquarituba · SP — Fundado em 2008</div>
+          <h1>
+            Seus direitos merecem uma defesa à <span class="text-gold-shimmer">altura</span>.
+            <span class="sub">Advocacia técnica, ética e comprometida em todo o Brasil.</span>
+          </h1>
+          <p class="lead">O escritório Politori & Oliveira une mais de 15 anos de experiência jurídica ao atendimento humano e transparente que cada cliente merece.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Falar com um advogado agora
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#areas" class="btn-ghost">Ver áreas de atuação</a>
+          </div>
+          <div class="badges">
+            <div class="badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>+15 anos de atuação</div>
+            <div class="badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Ética e transparência</div>
+            <div class="badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Atuação nacional</div>
+            <div class="badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>Múltiplas especialidades</div>
+          </div>
+        </div>
+        <div class="card-side reveal" style="transition-delay:0.12s">
+          <div class="card-glow"></div>
+          <div class="card-box">
+            <div class="card-header">
+              <h3>Politori & Oliveira — Sócios Fundadores</h3>
+              <p>Advogados · OAB/SP · Taquarituba</p>
+            </div>
+            <div class="card-body">
+              <div class="socio-row">
+                <div class="socio-avatar">RP</div>
+                <div class="socio-info">
+                  <strong>Dr. Rodrigo Politori</strong>
+                  <span>Sócio Fundador · OAB/SP</span>
+                </div>
+              </div>
+              <div class="socio-row">
+                <div class="socio-avatar">CO</div>
+                <div class="socio-info">
+                  <strong>Dr. Carlos E. Oliveira</strong>
+                  <span>Sócio Fundador · OAB/SP</span>
+                </div>
+              </div>
+              <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-gold" style="width:100%;justify-content:center;margin-top:0.25rem">
+                Agendar consulta →
+              </a>
+            </div>
+            <div class="card-footer">
+              <div class="stars-badge">
+                <div class="stars">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+                </div>
+                <span>Clientes em todo o Brasil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <strong>15+</strong>
-      <span>Anos de atuação</span>
+</section>
+
+<!-- STATS -->
+<div id="statsbar">
+  <div class="container">
+    <div class="inner">
+      <div class="stat reveal"><div class="stat-n">15+</div><div class="stat-l">anos de atuação</div></div>
+      <div class="stat reveal" style="transition-delay:.05s"><div class="stat-n">500+</div><div class="stat-l">casos conduzidos</div></div>
+      <div class="stat reveal" style="transition-delay:.1s"><div class="stat-n">8</div><div class="stat-l">áreas de atuação</div></div>
+      <div class="stat reveal" style="transition-delay:.15s"><div class="stat-n">BR</div><div class="stat-l">atendimento nacional</div></div>
+      <div class="stat reveal" style="transition-delay:.2s"><div class="stat-n">100%</div><div class="stat-l">comprometimento</div></div>
     </div>
-    <div class="hero-stat">
-      <strong>100%</strong>
-      <span>Comprometimento</span>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Identifique-se</div>
+      <h2 class="section-title">Você está passando por alguma destas situações?</h2>
+      <div class="gold-divider mx-auto"></div>
     </div>
-    <div class="hero-stat">
-      <strong>BR</strong>
-      <span>Atuação nacional</span>
+    <div class="cards">
+      <div class="pain-card reveal"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><p>Tive meus direitos trabalhistas desrespeitados</p></div>
+      <div class="pain-card reveal" style="transition-delay:.04s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div><p>Tenho um contrato com cláusulas abusivas</p></div>
+      <div class="pain-card reveal" style="transition-delay:.08s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><p>Pago juros abusivos em empréstimos ou financiamentos</p></div>
+      <div class="pain-card reveal" style="transition-delay:.12s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><p>Tenho questões imobiliárias ou de herança</p></div>
+      <div class="pain-card reveal" style="transition-delay:.16s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><p>Fui vítima de dano moral ou material</p></div>
+      <div class="pain-card reveal" style="transition-delay:.2s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><p>Preciso abrir ou regularizar minha empresa</p></div>
+      <div class="pain-card reveal" style="transition-delay:.24s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></div><p>Enfrento um processo criminal ou investigação</p></div>
+      <div class="pain-card reveal" style="transition-delay:.28s"><div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><p>Não sei se tenho direito — quero uma análise gratuita</p></div>
+    </div>
+    <div class="note">
+      <p class="reveal">Se você se identificou com pelo menos uma destas situações, nosso escritório pode te ajudar.</p>
+      <div class="cta reveal" style="transition-delay:.1s">
+        <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20análise%20do%20meu%20caso." target="_blank" rel="noopener" class="btn-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Falar com um advogado agora
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SOBRE -->
-<section class="sobre" id="sobre">
-  <div class="section-label">Sobre o escritório</div>
-  <h2>Advocacia construída<br>sobre resultados reais.</h2>
-  <div class="sobre-grid">
-    <div class="sobre-text">
-      <p>O escritório Politori & Oliveira Advogados Associados, estabelecido em Taquarituba-SP, devidamente inscrito na OAB, atua nas mais diversas áreas do Direito, patrocinando causas em inúmeras cidades em todo o Brasil.</p>
-      <p>Comprometidos em criar oportunidades para seus clientes, antecipando e atendendo suas necessidades com eficiência, ética e transparência — o escritório conta com estrutura física completa e equipe em permanente atualização.</p>
-      <p>Nossos profissionais participam continuamente de cursos, palestras e especializações, acompanhando as novas tendências da advocacia contemporânea.</p>
-      <div class="sobre-values">
-        <div class="value-item">
-          <strong>Ética</strong>
-          <p>Atuação íntegra em cada etapa do processo.</p>
+<section id="sobre">
+  <div class="container">
+    <div class="inner">
+      <div class="img-side reveal">
+        <div class="img-glow"></div>
+        <div class="img-placeholder">
+          <div class="bg-pat"></div>
+          <div class="monogram">P&O</div>
+          <div class="img-caption">
+            <div class="firm">Politori & Oliveira</div>
+            <div class="since">Fundado em 2008 · Taquarituba/SP</div>
+          </div>
         </div>
-        <div class="value-item">
-          <strong>Transparência</strong>
-          <p>Clareza total sobre estratégia e honorários.</p>
-        </div>
-        <div class="value-item">
-          <strong>Técnica</strong>
-          <p>Atualização constante e rigor jurídico.</p>
-        </div>
-        <div class="value-item">
-          <strong>Resultado</strong>
-          <p>Foco na melhor solução para cada caso.</p>
+        <div class="stars-badge-light">
+          <div class="stars-sm">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg>
+          </div>
+          Clientes satisfeitos
         </div>
       </div>
-    </div>
-    <div class="socios-card">
-      <h3>Os Sócios Fundadores</h3>
-      <div class="socio">
-        <div class="socio-avatar">RP</div>
-        <div class="socio-info">
-          <strong>Dr. Rodrigo Politori</strong>
-          <span>Sócio Fundador · OAB/SP</span>
-          <p>Especialista em Direito Bancário e revisão de contratos, com atuação em todo o território nacional.</p>
+      <div class="content reveal" style="transition-delay:.12s">
+        <div class="eyebrow">Quem somos</div>
+        <h2 class="section-title">Conheça o escritório Politori & Oliveira</h2>
+        <div class="gold-divider"></div>
+        <div class="body-text">
+          <p>O escritório <strong>Politori & Oliveira Advogados Associados</strong>, com sede em Taquarituba/SP, foi fundado com o compromisso de oferecer uma advocacia de resultado — unindo técnica jurídica rigorosa ao atendimento humano e próximo.</p>
+          <p>Com mais de 15 anos de atuação, patrocinamos causas em todo o território nacional, em múltiplas áreas do Direito, atendendo tanto pessoas físicas quanto empresas de todos os portes.</p>
+          <p>Nossa equipe está em permanente atualização, participando de cursos, especializações e palestras — porque a lei evolui, e nossos clientes merecem sempre o melhor da advocacia contemporânea.</p>
+        </div>
+        <div class="tags">
+          <span class="tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg> Ética</span>
+          <span class="tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg> Transparência</span>
+          <span class="tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg> Comprometimento</span>
+          <span class="tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg> Resultado</span>
+        </div>
+        <blockquote class="highlight">
+          <p>"Mais do que advogados — somos parceiros na busca pelo que é seu por direito."</p>
+        </blockquote>
+        <div>
+          <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Falar com um advogado agora
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
-      <div class="divider"></div>
-      <div class="socio">
-        <div class="socio-avatar">CO</div>
-        <div class="socio-info">
-          <strong>Dr. Carlos Eduardo Oliveira</strong>
-          <span>Sócio Fundador · OAB/SP</span>
-          <p>Atuação em Direito Civil, Trabalhista e Empresarial, com foco em soluções estratégicas para pessoas e empresas.</p>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <a href="https://wa.me/5514997254545" class="btn-primary" style="display:inline-flex; margin-top:0.5rem; font-size:0.85rem; padding:0.7rem 1.5rem;">
-        Agendar consulta →
-      </a>
     </div>
   </div>
 </section>
 
 <!-- ÁREAS -->
-<section class="areas" id="areas">
-  <div class="areas-header">
-    <div>
-      <div class="section-label">Especialidades</div>
-      <h2>Áreas de atuação</h2>
+<section id="areas">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Especialidades</div>
+      <h2 class="section-title">Áreas de atuação</h2>
+      <div class="gold-divider mx-auto"></div>
+      <p style="color:rgba(13,27,42,0.65)">Atuação multidisciplinar para oferecer a solução mais adequada à sua situação.</p>
     </div>
-    <p class="lead" style="max-width:380px; margin:0;">Atuação multidisciplinar para oferecer a solução jurídica mais adequada à sua situação.</p>
-  </div>
-  <div class="areas-grid">
-    <div class="area-card">
-      <div class="area-icon">⚖️</div>
-      <h3>Direito Civil</h3>
-      <p>Contratos, responsabilidade civil, família e sucessões, usucapião e questões imobiliárias.</p>
+    <div class="cards">
+      <article class="area-card reveal"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div><h3>Direito Civil</h3><p>Contratos, responsabilidade civil, indenizações, família, sucessões e questões imobiliárias.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.06s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><h3>Direito Bancário</h3><p>Revisão de juros abusivos, busca e apreensão de veículos, contratos de financiamento e seguros.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.12s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Direito Trabalhista</h3><p>Defesa de empregados e empregadores, verbas rescisórias, acúmulo de funções, assédio e mais.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Direito Empresarial</h3><p>Constituição de empresas, contratos comerciais, recuperação judicial e dissolução societária.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.06s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Direito Criminal</h3><p>Defesa criminal, habeas corpus, inquéritos policiais e recursos em todas as instâncias.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.12s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></div><h3>Revisão Contratual</h3><p>Revisão de empréstimos, financiamentos, seguros e contratos com cláusulas abusivas.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div><h3>Processos Administrativos</h3><p>Representação perante órgãos públicos, multas, licenças e recursos administrativos.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.06s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><h3>Cobrança e Execução</h3><p>Recuperação de crédito, execução de títulos, negativação e protestos extrajudiciais.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
+      <article class="area-card reveal" style="transition-delay:.12s"><div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Direito de Família</h3><p>Divórcio, guarda, alimentos, reconhecimento de paternidade e inventário.</p><a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="link">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></article>
     </div>
-    <div class="area-card">
-      <div class="area-icon">🏦</div>
-      <h3>Direito Bancário</h3>
-      <p>Revisão de juros abusivos, busca e apreensão de veículos, contratos de financiamento e seguros.</p>
+    <div style="margin-top:3.5rem;display:flex;justify-content:center" class="reveal">
+      <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Falar com um advogado agora
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
-    <div class="area-card">
-      <div class="area-icon">👔</div>
-      <h3>Direito Trabalhista</h3>
-      <p>Defesa de empregados e empregadores, verbas rescisórias, acúmulo de funções e assédio.</p>
-    </div>
-    <div class="area-card">
-      <div class="area-icon">🏢</div>
-      <h3>Direito Empresarial</h3>
-      <p>Constituição de empresas, contratos comerciais, recuperação judicial e dissolução societária.</p>
-    </div>
-    <div class="area-card">
-      <div class="area-icon">🔒</div>
-      <h3>Direito Criminal</h3>
-      <p>Defesa criminal, habeas corpus, inquéritos policiais e recursos em todas as instâncias.</p>
-    </div>
-    <div class="area-card">
-      <div class="area-icon">📋</div>
-      <h3>Processos Administrativos</h3>
-      <p>Representação perante órgãos públicos, multas, licenças e recursos administrativos.</p>
-    </div>
-    <div class="area-card">
-      <div class="area-icon">💳</div>
-      <h3>Cobrança e Execução</h3>
-      <p>Recuperação de crédito, execução de títulos, negativação e protestos extrajudiciais.</p>
-    </div>
-    <div class="area-card">
-      <div class="area-icon">🔄</div>
-      <h3>Revisão Contratual</h3>
-      <p>Revisão de empréstimos, financiamentos, seguros e qualquer contrato com cláusulas abusivas.</p>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:3rem;">
-    <a href="#contato" class="btn-primary" style="background:var(--navy); color:var(--white);">Consultar sobre meu caso →</a>
   </div>
 </section>
 
 <!-- DIFERENCIAIS -->
-<section class="diferenciais">
-  <div class="section-label" style="color:var(--gold-light);">Por que nos escolher</div>
-  <h2>O que nos diferencia</h2>
-  <p class="lead">Mais do que advogados — somos parceiros na busca pela solução mais justa para cada caso.</p>
-  <div class="dif-grid">
-    <div class="dif-item">
-      <div class="dif-num">01</div>
-      <h3>Atuação nacional</h3>
-      <p>Patrocinamos causas em todo o Brasil, sem fronteiras geográficas.</p>
+<section id="diferenciais">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow" style="color:var(--gold-soft)">Por que nos escolher</div>
+      <h2 class="section-title" style="color:var(--cream)">O que nos diferencia</h2>
+      <div class="gold-divider mx-auto"></div>
+      <p style="color:rgba(255,255,255,0.5)">Mais do que advogados — somos parceiros na conquista dos seus direitos.</p>
     </div>
-    <div class="dif-item">
-      <div class="dif-num">02</div>
-      <h3>Equipe atualizada</h3>
-      <p>Participação contínua em cursos, palestras e especializações jurídicas.</p>
+    <div class="cards">
+      <div class="dif-card reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Atendimento Humanizado</h3><p>Você é tratado como pessoa, não como número de processo. Cada caso tem atenção individual.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.06s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><h3>Atuação Nacional</h3><p>Patrocinamos causas em todo o Brasil, presencial ou 100% online, sem fronteiras geográficas.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.12s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3>Acompanhamento Completo</h3><p>Do primeiro contato até a decisão final, com transparência total em cada etapa do processo.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.18s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg><h3>Equipe em Atualização</h3><p>Participação contínua em cursos, especializações e palestras para acompanhar a lei.</p></div>
+      <div class="dif-card reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><h3>Comunicação Clara</h3><p>Linguagem simples e direta — você entende cada passo, sem jargão jurídico desnecessário.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.06s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3>Transparência Total</h3><p>Sem promessas vazias. Sem surpresas. Estratégia e honorários explicados com clareza.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.12s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg><h3>Defesa Estratégica</h3><p>Cada caso tem uma estratégia desenhada individualmente, focada no melhor resultado possível.</p></div>
+      <div class="dif-card reveal" style="transition-delay:.18s"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg><h3>Estrutura Completa</h3><p>Escritório físico moderno em Taquarituba/SP, com vasto acervo bibliográfico e equipe dedicada.</p></div>
     </div>
-    <div class="dif-item">
-      <div class="dif-num">03</div>
-      <h3>Advocacia preventiva</h3>
-      <p>Antecipamos riscos e evitamos problemas antes que se tornem processos.</p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Histórias Reais</div>
+      <h2 class="section-title">Quem confiou, conquistou</h2>
+      <div class="gold-divider mx-auto"></div>
     </div>
-    <div class="dif-item">
-      <div class="dif-num">04</div>
-      <h3>Estrutura completa</h3>
-      <p>Instalações modernas e vasto acervo bibliográfico para servir você.</p>
+    <div class="cards">
+      <figure class="testi-card reveal"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Profissionais sérios, comprometidos e que realmente lutam pelo cliente. Recomendo de olhos fechados.</blockquote><figcaption>Cliente — Direito Civil · Taquarituba/SP</figcaption></figure>
+      <figure class="testi-card reveal" style="transition-delay:.06s"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Meu contrato de financiamento tinha juros absurdos. O escritório conseguiu a revisão e eu economizei muito.</blockquote><figcaption>Cliente — Direito Bancário · São Paulo/SP</figcaption></figure>
+      <figure class="testi-card reveal" style="transition-delay:.12s"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Fui demitido sem receber nada que eu tinha direito. O Dr. Rodrigo resolveu tudo rapidinho. Muito grato!</blockquote><figcaption>Cliente — Direito Trabalhista · Ourinhos/SP</figcaption></figure>
+      <figure class="testi-card reveal"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Atendimento humanizado desde o primeiro contato. Explicaram tudo com clareza e resolveram meu caso.</blockquote><figcaption>Cliente — Direito de Família · Bernardino de Campos/SP</figcaption></figure>
+      <figure class="testi-card reveal" style="transition-delay:.06s"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Indiquei para vários amigos. Sempre sérios, sempre transparentes. Escritório de confiança mesmo.</blockquote><figcaption>Cliente — Direito Empresarial · Piraju/SP</figcaption></figure>
+      <figure class="testi-card reveal" style="transition-delay:.12s"><svg class="quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zm12 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/></svg></div><blockquote>Não sabia que tinha direito a tanto. Graças ao trabalho do escritório, consegui o que parecia impossível.</blockquote><figcaption>Cliente — Revisão Contratual · Atendimento Online</figcaption></figure>
+    </div>
+    <div style="margin-top:3.5rem;display:flex;justify-content:center" class="reveal">
+      <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Quero ser o próximo cliente satisfeito
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Como funciona</div>
+      <h2 class="section-title">Do primeiro contato à vitória</h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+    <div class="cards">
+      <div class="how-card reveal"><div class="num">01</div><h3>Você entra em contato</h3><p>Via WhatsApp, e-mail ou presencialmente. Atendimento rápido, sigiloso e sem compromisso.</p></div>
+      <div class="how-card reveal" style="transition-delay:.08s"><div class="num">02</div><h3>Analisamos seu caso</h3><p>Nossa equipe estuda sua situação em detalhes e identifica o melhor caminho jurídico.</p></div>
+      <div class="how-card reveal" style="transition-delay:.16s"><div class="num">03</div><h3>Definimos a estratégia</h3><p>Apresentamos um plano de ação claro, com expectativas reais e sem promessas vazias.</p></div>
+      <div class="how-card reveal" style="transition-delay:.24s"><div class="num">04</div><h3>Acompanhamos tudo</h3><p>Você é informado a cada passo até a decisão final. Nunca estará sozinho no processo.</p></div>
+    </div>
+    <div style="margin-top:3.5rem;display:flex;justify-content:center" class="reveal">
+      <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Iniciar agora pelo WhatsApp
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Perguntas Frequentes</div>
+      <h2 class="section-title">Suas dúvidas respondidas</h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+    <div class="items">
+      <details class="faq-item reveal"><summary><h3>O escritório atende fora de Taquarituba?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Sim. Atuamos em processos em todo o território brasileiro, com atendimento presencial em Taquarituba/SP e atendimento 100% online para clientes de qualquer estado.</p></details>
+      <details class="faq-item reveal" style="transition-delay:.05s"><summary><h3>Preciso ir ao escritório para iniciar meu caso?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Não é obrigatório. Realizamos toda a coleta de informações e documentos de forma digital, por WhatsApp ou e-mail. O processo pode ser conduzido inteiramente à distância.</p></details>
+      <details class="faq-item reveal" style="transition-delay:.1s"><summary><h3>Quanto tempo leva um processo?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Depende da área e da via escolhida. Casos administrativos podem ser resolvidos em semanas. Processos judiciais variam de meses a alguns anos conforme a complexidade e a instância.</p></details>
+      <details class="faq-item reveal" style="transition-delay:.15s"><summary><h3>Como funcionam os honorários?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Os honorários são apresentados com total transparência antes de qualquer compromisso. A forma de cobrança varia conforme o tipo de causa e pode ser por êxito, mensalidade ou valor fixo.</p></details>
+      <details class="faq-item reveal" style="transition-delay:.2s"><summary><h3>Atendem pessoa física e empresas?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Sim. Atendemos tanto pessoas físicas quanto jurídicas, de todos os portes, em múltiplas áreas do Direito — desde questões familiares até contratos empresariais complexos.</p></details>
+      <details class="faq-item reveal" style="transition-delay:.25s"><summary><h3>Posso consultar sem saber se tenho direito?</h3><svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary><p class="answer">Absolutamente. Um dos nossos principais serviços é justamente identificar se há direito a ser exercido. Entre em contato, explique sua situação e nossa equipe fará uma análise inicial sem custo.</p></details>
+    </div>
+    <div style="margin-top:3rem;display:flex;justify-content:center" class="reveal">
+      <a href="https://wa.me/5514997254545?text=Olá!%20Tenho%20uma%20dúvida%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Tenho outra dúvida — falar agora
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- CONTATO -->
-<section class="contato" id="contato">
-  <div class="section-label">Fale conosco</div>
-  <h2>Vamos conversar<br>sobre o seu caso.</h2>
-  <div class="contato-grid">
-    <div class="contato-info">
-      <h3>Atendimento presencial<br>e em todo o Brasil.</h3>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <strong>Telefone / WhatsApp</strong>
-          <a href="https://wa.me/5514997254545">(14) 9.9725-4545</a><br>
-          <a href="tel:5514996851304">(14) 9.9685-1304</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <strong>Endereço — Matriz</strong>
-          <p>R. Ten.-Cel. Firmino Gabriel da Luz, 232<br>Centro — Taquarituba/SP — CEP 18.740-005</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <strong>E-mail</strong>
-          <a href="mailto:contato@politorioliveiraadvocacia.com.br">contato@politorioliveiraadvocacia.com.br</a>
-        </div>
-      </div>
-      <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="btn-primary" style="margin-top:1rem; display:inline-flex;">
-        Iniciar conversa no WhatsApp →
-      </a>
+<section id="contato">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Fale conosco</div>
+      <h2 class="section-title">Vamos conversar sobre o seu caso</h2>
+      <div class="gold-divider mx-auto"></div>
     </div>
-    <div class="contato-form">
-      <h3>Envie uma mensagem</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nome completo</label>
-          <input type="text" placeholder="Seu nome">
+    <div class="inner">
+      <div class="reveal">
+        <h3>Atendimento presencial<br>e em todo o Brasil.</h3>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div>
+          <div>
+            <strong>Telefone / WhatsApp</strong>
+            <a href="https://wa.me/5514997254545">(14) 9.9725-4545</a><br>
+            <a href="tel:5514996851304">(14) 9.9685-1304</a>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Telefone</label>
-          <input type="tel" placeholder="(14) 99999-0000">
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <strong>Endereço</strong>
+            <p>R. Ten.-Cel. Firmino Gabriel da Luz, 232<br>Centro — Taquarituba/SP — CEP 18.740-005</p>
+          </div>
         </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <strong>E-mail</strong>
+            <a href="mailto:contato@politorioliveiraadvocacia.com.br">contato@politorioliveiraadvocacia.com.br</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div>
+            <strong>Instagram</strong>
+            <a href="https://www.instagram.com/politori_oliveira_advocacia/" target="_blank" rel="noopener">@politori_oliveira_advocacia</a>
+          </div>
+        </div>
+        <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold" style="margin-top:0.5rem">
+          Iniciar conversa no WhatsApp →
+        </a>
       </div>
-      <div class="form-group">
-        <label>E-mail</label>
-        <input type="email" placeholder="seu@email.com">
+      <div class="form-box reveal" style="transition-delay:.1s">
+        <h3>Envie uma mensagem</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nome completo</label><input type="text" placeholder="Seu nome"></div>
+          <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(14) 99999-0000"></div>
+        </div>
+        <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+        <div class="form-group"><label>Área de interesse</label>
+          <select>
+            <option value="">Selecione a área</option>
+            <option>Direito Civil</option><option>Direito Bancário</option><option>Direito Trabalhista</option><option>Direito Empresarial</option><option>Direito Criminal</option><option>Revisão Contratual</option><option>Processos Administrativos</option><option>Direito de Família</option><option>Cobrança e Execução</option><option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Descreva brevemente seu caso</label><textarea placeholder="Conte-nos o que está acontecendo..."></textarea></div>
+        <button class="btn-submit">Enviar mensagem</button>
       </div>
-      <div class="form-group">
-        <label>Área de interesse</label>
-        <select>
-          <option value="">Selecione a área</option>
-          <option>Direito Civil</option>
-          <option>Direito Bancário</option>
-          <option>Direito Trabalhista</option>
-          <option>Direito Empresarial</option>
-          <option>Direito Criminal</option>
-          <option>Processos Administrativos</option>
-          <option>Cobrança e Execução</option>
-          <option>Revisão Contratual</option>
-          <option>Outro</option>
-        </select>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="finalcta">
+  <div class="glow"></div>
+  <div class="container">
+    <div class="inner reveal">
+      <div class="gold-divider mx-auto" style="margin-bottom:2rem"></div>
+      <h2>Seu direito pode estar<br><span class="text-gold-shimmer">esperando por você.</span></h2>
+      <p>Fale agora com nossa equipe e descubra as suas possibilidades. O primeiro passo é uma conversa.</p>
+      <div class="cta">
+        <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Falar com um advogado agora
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contato" class="btn-ghost">Enviar mensagem</a>
       </div>
-      <div class="form-group">
-        <label>Descreva seu caso brevemente</label>
-        <textarea placeholder="Conte-nos o que está acontecendo..."></textarea>
-      </div>
-      <button class="btn-submit">Enviar mensagem</button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div style="font-family:var(--font-display); color:var(--white); font-size:1.2rem; font-weight:400; letter-spacing:0.04em;">
-        <span style="color:var(--gold);">Politori</span> & Oliveira
+  <div class="container">
+    <div class="grid">
+      <div class="logo-block">
+        <div class="logo-text" style="font-size:1.2rem"><span>Politori</span> & Oliveira</div>
+        <div class="logo-oab" style="color:rgba(255,255,255,0.3);margin-top:0.25rem">Advogados Associados · OAB/SP</div>
+        <p>Escritório de advocacia especializado em múltiplas áreas do Direito. Atuação em todo o Brasil com comprometimento, ética e transparência desde 2008.</p>
       </div>
-      <p>Escritório de Advocacia especializado em múltiplas áreas do Direito. Atuação em todo o Brasil com comprometimento, ética e transparência.</p>
+      <div>
+        <h4>Navegação</h4>
+        <ul class="nav-links-col">
+          <li><a href="#sobre">Sobre o escritório</a></li>
+          <li><a href="#areas">Áreas de atuação</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#processo">Como funciona</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://wa.me/5514997254545" target="_blank" rel="noopener" class="contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>(14) 9.9725-4545</a>
+        <a href="tel:5514996851304" class="contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>(14) 9.9685-1304</a>
+        <a href="mailto:contato@politorioliveiraadvocacia.com.br" class="contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Enviar e-mail</a>
+        <a href="https://www.instagram.com/politori_oliveira_advocacia/" target="_blank" rel="noopener" class="contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        <a href="https://www.politorioliveiraadvocacia.com.br" target="_blank" rel="noopener" class="contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Site original</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Navegação</h4>
-      <ul>
-        <li><a href="#sobre">Sobre o escritório</a></li>
-        <li><a href="#areas">Áreas de atuação</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+    <div class="bottom">
+      <p id="year-copy"></p>
+      <p>Conforme o Provimento 205/2021 da OAB, este conteúdo possui caráter meramente informativo e não constitui oferta de serviços advocatícios.</p>
     </div>
-    <div class="footer-col">
-      <h4>Contato</h4>
-      <ul>
-        <li><a href="https://wa.me/5514997254545">(14) 9.9725-4545</a></li>
-        <li><a href="https://wa.me/5514996851304">(14) 9.9685-1304</a></li>
-        <li><a href="mailto:contato@politorioliveiraadvocacia.com.br">Enviar e-mail</a></li>
-        <li><a href="https://www.instagram.com/politori_oliveira_advocacia/">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Politori & Oliveira Advogados Associados. Todos os direitos reservados.</p>
-    <p class="footer-oab">Conforme o Provimento 205/2021 da OAB, este conteúdo tem caráter meramente informativo e não constitui oferta de serviços advocatícios.</p>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="wa-float" target="_blank" rel="noopener">
-  <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </svg>
-  Fale agora
-</a>
+<!-- FLOAT WA -->
+<div id="float-wa">
+  <a href="https://wa.me/5514997254545?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+    <span class="ping"></span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="label">Fale conosco</span>
+  </a>
+</div>
 
+<script>
+  document.getElementById('year-copy').textContent =
+    '© ' + new Date().getFullYear() + ' Politori & Oliveira Advogados Associados. Todos os direitos reservados.';
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
